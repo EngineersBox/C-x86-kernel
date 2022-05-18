@@ -1,15 +1,9 @@
+#include <inttypes.h>
 #include "bios_colour_attributes.h"
-
-// No stadnardised way to detect 64-bit vs 32-bit architectures. So this will have to do
-#if defined (__alpha__) || defined (__ia64__) || defined (__x86_64__) || defined (_WIN64) || defined (__LP64__) || defined (__LLP64__)
-    typedef unsigned __int64  __kernel_uintptr_t;
-#else
-    typedef unsigned int __kernel_uintptr_t;
-#endif
 
 // ==== KERNEL CONSTANTS ====
 
-static const __kernel_uintptr_t VIDEO_MEMORY_ADDRESS = 0xb8000;
+static const uintptr_t VIDEO_MEMORY_ADDRESS = 0xb8000;
 static const unsigned char VIDEO_MAX_LINES = 25;
 static const unsigned char VIDEO_MAX_CHAR_PER_LINE = 80;
 static const unsigned char BYTES_PER_CHAR = 2;

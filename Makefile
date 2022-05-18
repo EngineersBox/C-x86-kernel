@@ -6,7 +6,10 @@ LINKER_CFG_PATH = linker/linker.ld
 KERNEL_ELF_NAME = kernel
 
 
-.PHONY: compile run-unix run-windows
+.PHONY: clean compile run-unix run-windows
+
+clean:
+	rm kernel kernel_asm.o kernel_c.o
 
 compile:
 	nasm -f elf32 $(KERNEL_ASM_PATH) -o $(KERNEL_ASM_OBJ)
@@ -21,6 +24,6 @@ run-windows:
 
 # ==== RUN CONFIGS ==== #
 
-unix: compile run-unix
+unix: clean compile run-unix
 
-windows: compile run-windows
+windows: clean compile run-windows
