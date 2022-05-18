@@ -15,6 +15,8 @@ static const uint8_t VIDEO_MAX_CHAR_PER_LINE = 80;
 #define BYTES_PER_BIOS_CHAR 2
 static const char CLEAR_CHARS[BYTES_PER_BIOS_CHAR] = { ' ', BIOS_COLOUR_ATTR_GREEN };
 
+// ==== MAIN ====
+
 void kernelMain(void) {
     const char* string = "C x86 Kernel";
     char* videoMemPtr = (char*) VIDEO_MEMORY_ADDRESS;
